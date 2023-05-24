@@ -1,11 +1,16 @@
 import '@/styles/globals.css'
-import Layout from '../src/components/layout'
+import Head from 'next/head';
 
-const App = ({ Component, pageProps }) => {
+const  App = ({ Component, pageProps }) =>{
   return (
-    <Layout>
+    <>
+      <Head>
+        <title>Data Sensing System</title>
+        <link rel="shortcut icon" href="/AIF_Purple_noncrop.png" />
+        <meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width" />
+      </Head>
       <Component {...pageProps} />
-    </Layout>
+    </>
   )
 }
 
