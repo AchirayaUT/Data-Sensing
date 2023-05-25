@@ -67,7 +67,7 @@ const main = () => {
                       }} />
                     <span style={{ marginLeft: '10px' }}>Demand Forecasting</span>
                   </Button>
-                </Box>
+                </Box> 
               </Grid>
             </Grid>
           </Grid>
@@ -121,23 +121,6 @@ const main = () => {
       </Box>
       </ThemeProvider>
     </Navbar>
-
-    // <ThemeProvider theme={styles}>
-    //   <div className="relative max-w-xl h-80">
-    //     <div className="absolute inset-0">
-    //       <Image src={bg} fill />
-    //       <Grid container spacing={2}>
-    //         <Grid item xs={6} md={8}  style={{ marginTop: 500 }}>
-    //           <Stack spacing={2} direction="row" style={{ marginLeft: 70 }}>
-    //             <Button variant="outlined" style={{ fontSize: '16px', fontWeight: 'bolder', width: 320, height: 90, color: '#FFFFFF', borderRadius: 60 }} onClick={() => router.push('/Inventory')}>Inventory Forecasting</Button>
-    //             <Button variant="outlined" style={{ fontSize: '16px', fontWeight: 'bolder', width: 320, height: 90, color: '#FFFFFF', borderRadius: 60 }} onClick={() => router.push('/')}>Demand Forecasting</Button>
-    //           </Stack>
-              
-    //         </Grid>
-    //       </Grid>
-    //     </div>
-    //   </div>
-    //   </ThemeProvider>
   )
 }
 

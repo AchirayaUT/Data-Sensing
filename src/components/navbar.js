@@ -154,6 +154,7 @@ const Navbar = ({children, isHomePage, title,setDrawer,defaultDrawer,tabChildren
               aria-controls="menu-appbar"
               aria-haspopup="true"
               color="inherit"
+              onClick={() => router.push('/')}
             >
               <LogoutIcon />
             </IconButton>
@@ -220,6 +221,7 @@ const Navbar = ({children, isHomePage, title,setDrawer,defaultDrawer,tabChildren
               aria-controls="menu-appbar"
               aria-haspopup="true"
               color="inherit"
+              onClick={() => router.push('/')}
             >
               <LogoutIcon />
             </IconButton>
