@@ -6,12 +6,27 @@ import { ThemeProvider } from '@mui/material';
 import styles from "./dashboard.style";
 import { useRouter } from "next/router";
 // import { LayoutFilter } from "@/src/components/layoutFilter";
-import { LayoutFilter } from '@/src/components/Components'
+import { LayoutFilter , InvenDashboard} from '@/src/components/Components'
+
+
+const brand = [
+    {name: 'B1'},
+    {name: 'B1'},
+    {name: 'B1'},
+    {name: 'B1'},
+    {name: 'B1'},
+    {name: 'B1'},
+    {name: 'B1'},
+    {name: 'B1'},
+    {name: 'B1'},
+    {name: 'B1'}
+]
 
 
 const Dashboard = () => {
     const router = useRouter()
     const [drawerOpen, setDrawerOpen] = useState(true)
+    const [brandList, setBrandList] = useState(brand)
 
     const setDrawer = (open) => {
         setDrawerOpen(open)
@@ -50,16 +65,13 @@ const Dashboard = () => {
             defaultDrawer={true}
             setDrawer={setDrawer}
             title="Inventory Forecasting"
-            tabChildren={<LayoutFilter />}
+            tabChildren={
+                <LayoutFilter 
+                    filterList={brandList}
+                />
+            }
         >
-            <ThemeProvider theme={styles}>
-                <Box sx={{ display: "flex", justifyContent: "right", alignItems: "center", width: "100%", marginBottom: "15px" }}>
-                    <Button>
-                        <ArrowDropDown sx={{ width: '24px' }} />
-                        SELECT FIELD
-                    </Button>
-                </Box>
-            </ThemeProvider>
+            <InvenDashboard/>
         </Navbar>
     )
 }

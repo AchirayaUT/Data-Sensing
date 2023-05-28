@@ -8,6 +8,9 @@ export default function Document() {
           rel="stylesheet"
           href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
         />
+        <link rel="preconnect" href="https://fonts.googleapis.com"/>
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Prompt:wght@200;500&display=swap" rel="stylesheet"></link>
       </Head>
       <body>
         <Main />
