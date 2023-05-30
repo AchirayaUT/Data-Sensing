@@ -13,12 +13,6 @@ import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
-import ListItem from '@mui/material/ListItem';
-import ListItemButton from '@mui/material/ListItemButton';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
-import MailIcon from '@mui/icons-material/Mail';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { grey } from '@mui/material/colors';
 import MenuItem from '@mui/material/MenuItem';
@@ -26,8 +20,8 @@ import Menu from '@mui/material/Menu';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import Badge from '@mui/material/Badge';
 import LogoutIcon from '@mui/icons-material/Logout';
-import styles from './navbar.style';
-import { Typography } from '@mui/material'
+import styles from './navbarManage.style';
+import { Typography } from '@mui/material';
 import clsx from 'clsx';
 
 
@@ -42,7 +36,7 @@ const themeBar = createTheme({
 
 
 
-const Navbar = ({ children, isHomePage, title, setDrawer, defaultDrawer, tabChildren }) => {
+const NavbarManage = ({ children, isHomePage, title, setDrawer, defaultDrawer, tabChildren }) => {
   const router = useRouter();
   const theme = useTheme();
   const [open, setOpen] = React.useState(defaultDrawer);
@@ -262,4 +256,4 @@ const Navbar = ({ children, isHomePage, title, setDrawer, defaultDrawer, tabChil
   }
 }
 
-export default Navbar
+export default NavbarManage
