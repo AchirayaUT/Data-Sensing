@@ -67,15 +67,17 @@ const SingIn = () => {
             />
           </Box>
           <Box>
-            <Button type="submit" variant="outlined" color="secondary" onClick={() => router.push('/main')}> {`Sign In`} </Button>
+            <Button style={{ width: 100, height: 40, backgroundColor: '#5D40D2', color: '#FFFFFF', marginTop: 10 }}
+              onClick={() => router.push('/main')}>
+              {`Sign In`}
+            </Button>
           </Box>
 
           <Box style={{ fontSize: '16px', color: '#5D40D2', marginTop: 30, marginRight: 100 }}>
-
             <Link
-              href="#"
               data-cy="forgot_password"
-            // onClick={toForgotPassword}
+              color={'#5D40D2'}
+              onClick={() => router.push('/password')}
             >
               {`Forgot your password?`}
             </Link>
@@ -95,5 +97,4 @@ const SingIn = () => {
   )
 }
 export default SingIn
-
 

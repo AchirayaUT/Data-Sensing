@@ -5,9 +5,8 @@ import { ArrowBackIos, ArrowDropDown } from "@mui/icons-material";
 import { ThemeProvider } from '@mui/material';
 import styles from "./dashboard.style";
 import { useRouter } from "next/router";
-<<<<<<< Updated upstream
-// import { LayoutFilter } from "@/src/components/layoutFilter";
 import { LayoutFilter , InvenDashboard} from '@/src/components/Components'
+// import { LayoutFilter } from '@/src/components/Components';
 
 
 const brand = [
@@ -22,9 +21,6 @@ const brand = [
     {name: 'B1'},
     {name: 'B1'}
 ]
-=======
-import { LayoutFilter } from '@/src/components/Components';
->>>>>>> Stashed changes
 
 
 const Dashboard = () => {
