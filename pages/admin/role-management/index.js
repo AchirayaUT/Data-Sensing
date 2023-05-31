@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import { NavbarManage, TableUserManage } from '@/src/components/Components'
+import { NavbarManage, TableRoleManage } from '@/src/components/Components'
 import { useRouter } from "next/router";
 import { MenuBar } from '@/src/components/Components'
 
 
-const UserManagement = () => {
+const RoleManagement = () => {
     const router = useRouter()
     const [drawerOpen, setDrawerOpen] = useState(true)
 
@@ -23,9 +23,9 @@ const UserManagement = () => {
             title="Management"
             tabChildren={<MenuBar />}
         >
-            <TableUserManage />
+            <TableRoleManage />
         </NavbarManage>
     )
 }
 
-export default UserManagement
+export default RoleManagement

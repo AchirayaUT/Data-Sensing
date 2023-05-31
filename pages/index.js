@@ -47,6 +47,16 @@ const SingIn = () => {
                 )
               }}
             />
+          </Box>
+
+          <Box
+            component="form"
+            sx={{
+              "& .MuiTextField-root": { m: 1.5, width: "30ch" }
+            }}
+            noValidate
+            autoComplete="off"
+          >
             <TextField
               label="Password"
               type="password"
@@ -89,12 +99,8 @@ const SingIn = () => {
             <img src={"/asset/bg_login.jpg"} style={{ width: '100%', height: '97vh' }} />
           </Grid>
         </Hidden>
-
       </Grid>
-
-
     </>
   )
 }
 export default SingIn
-

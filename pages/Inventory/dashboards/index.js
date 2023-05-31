@@ -1,12 +1,11 @@
 import React, { useState } from "react";
-import Navbar from "@/src/components/navbar";
+// import Navbar from "@/src/components/Components";
 import { Box, Button, Typography } from '@mui/material';
 import { ArrowBackIos, ArrowDropDown } from "@mui/icons-material";
 import { ThemeProvider } from '@mui/material';
 import styles from "./dashboard.style";
 import { useRouter } from "next/router";
-import { LayoutFilter , InvenDashboard} from '@/src/components/Components'
-// import { LayoutFilter } from '@/src/components/Components';
+import { Navbar, LayoutFilter , InvenDashboard} from '@/src/components/Components'
 
 
 const brand = [
