@@ -4,7 +4,9 @@ import { ThemeProvider } from '@mui/material';
 import { useRouter } from "next/router";
 import { DataGrid } from '@mui/x-data-grid';
 import styles from './tableRole.style'
-import { DialogAction } from '@/src/components/Components'
+import { DialogAction, DialogCreate } from '@/src/components/Components'
+import { Toolbar } from "@mui/material";
+import { GridToolbarFilterButton, GridToolbarContainer } from '@mui/x-data-grid';
 
 const columns = [
   {
@@ -51,48 +53,72 @@ const rows = [
 ];
 
 
+const CustomToolbar = ({ setFilterButtonEl }) => {
+  return (
+    <div style={{ flexGrow: 1 }}>
+      <Toolbar variant="dense" disableGutters>
+        <div style={{ flexGrow: 1 }}></div>
+        <GridToolbarContainer sx={{ p: 0 }}>
+          <GridToolbarFilterButton ref={setFilterButtonEl} />
+        </GridToolbarContainer>
+      </Toolbar>
+    </div>
+  );
+}
+
 const TableRoleManage = () => {
-  const router = useRouter()
-  const [drawerOpen, setDrawerOpen] = useState(true)
-
-  const setDrawer = (open) => {
-    setDrawerOpen(open)
-  }
-
-  const backToHome = () => {
-    router.push('/main')
-  }
+  const [pageSize, setPageSize] = useState(10)
+  const [filterButtonEl, setFilterButtonEl] = useState(null)
 
   return (
 
     <ThemeProvider theme={styles}>
       <Box sx={{ display: "flex", justifyContent: 'left', alignItems: "center", width: "100%", }}>
+        <Box><DialogCreate /></Box>
         <Box style={{ margin: 10 }}>
           <DialogAction />
         </Box>
       </Box>
 
+
       <Grid item>
-        <Typography variant="subtitle1" component="div" style={{ fontSize: '16px', fontWeight: 'bolder', textAlign: 'right', color: '#6D6D6D', marginRight: 30 }}>
-          {`(6 Role)`}
+        <Typography variant="subtitle1" component="div" style={{ fontSize: '16px', fontWeight: 'bolder', textAlign: 'right', color: '#6D6D6D' }}>
+        {`(${rows.length} Roles)`}
         </Typography>
       </Grid>
-      <Box sx={{ height: '80%', width: '100%', marginTop: 3 }}>
-        <DataGrid
-          rows={rows}
-          columns={columns}
-          initialState={{
-            pagination: {
-              paginationModel: {
-                pageSize: 10,
-              },
-            },
+      <div>
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "flex-end",
+            width: "100%",
+            height: "100%",
           }}
-          pageSizeOptions={[10]}
-          checkboxSelection
-          disableRowSelectionOnClick
-        />
-      </Box>
+        >
+          <DataGrid
+            rows={rows}
+            columns={columns}
+            // rowsPerPageOptions={[10, 20, 50]}
+            pageSize={pageSize}
+            pagination
+            onPageSizeChange={(newPageSize) => setPageSize(newPageSize)}
+            autoHeight
+            checkboxSelection
+            components={{
+              Toolbar: CustomToolbar,
+            }}
+            componentsProps={{
+              panel: {
+                anchorEl: filterButtonEl,
+                placement: "bottom-end",
+              },
+              toolbar: {
+                setFilterButtonEl,
+              },
+            }}
+          />
+        </div>
+      </div>
     </ThemeProvider>
   )
 }

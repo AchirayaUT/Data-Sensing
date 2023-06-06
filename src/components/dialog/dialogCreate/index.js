@@ -1,14 +1,21 @@
 import { useState, useRef, useEffect } from "react";
-import { Typography, DialogActions, DialogContent, DialogContentText, DialogTitle, useMediaQuery, Button, Dialog } from '@mui/material'
-import { useRouter } from "next/router";
-import { useTheme } from '@mui/material/styles';
-import DeleteIcon from '@mui/icons-material/Delete';
 import { deepPurple } from "@mui/material/colors";
+import { Box, Checkbox, Button, Dialog, DialogContent, DialogActions, DialogTitle, FormControlLabel, FormControl, FormHelperText, OutlinedInput, FormLabel, FormGroup } from '@mui/material';
 import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 
+
 const DialogCreate = () => {
-  const router = useRouter()
   const [open, setOpen] = useState(false);
+  const [state, setState] = useState({ gilad: false });
+
+  const { gilad } = state;
+
+  const handleChange = (event) => {
+    setState({
+      ...state,
+      [event.target.name]: event.target.checked,
+    });
+  };
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -18,60 +25,138 @@ const DialogCreate = () => {
     setOpen(false);
   };
 
-
   return (
     <>
-       <div>
-       {/* <Button style={{ backgroundColor: '#5D40D2', color: '#FFFFFF', marginRight: 10 }} startIcon={<AddCircleOutlineIcon />}>
-          {`Create User`}
-        </Button> */}
+      <div>
+        <Button variant="outlined" onClick={handleClickOpen} style={{ backgroundColor: '#5D40D2', color: '#FFFFFF', marginRight: 10 }} startIcon={<AddCircleOutlineIcon />}>
+          {`Create`}
+        </Button>
+        <Dialog open={open} onClose={handleClose}>
 
-      <Dialog open={open} onClose={handleClose}>
-        <DialogTitle>Create User</DialogTitle>
-        <DialogContent>
-          <TextField
-            autoFocus
-            margin="dense"
-            id="name"
-            label="Name"
-            fullWidth
-            variant="standard"
-            color="secondary"
-          />
-           <TextField
-            autoFocus
-            margin="dense"
-            id="name"
-            label="User Name"
-            fullWidth
-            variant="standard"
-            color="secondary"
-          />
-           <TextField
-            autoFocus
-            margin="dense"
-            id="name"
-            label="Email Address"
-            fullWidth
-            variant="standard"
-            color="secondary"
-          />
-           <TextField
-            autoFocus
-            margin="dense"
-            id="name"
-            label="Role"
-            fullWidth
-            variant="standard"
-            color="secondary"
-          />
-        </DialogContent>
-        <DialogActions>
-          <Button onClick={handleClose}>{'Create'}</Button>
-          <Button onClick={handleClose}>{'Cancel'}</Button>
-        </DialogActions>
-      </Dialog>
-    </div>
+          <DialogContent>
+            <DialogTitle style={{ fontSize: 16, color: '#646464' }}>{`Create User`}</DialogTitle>
+            <Box sx={{ display: 'flex', flexWrap: 'wrap', display: "flex", justifyContent: 'center', alignItems: "center", width: "100%" }}>
+              <div>
+                <FormControl sx={{ m: 1, width: '50ch' }} variant="outlined">
+                  <FormHelperText id="outlined-weight-helper-text">{`Name`}</FormHelperText>
+                  <OutlinedInput
+                    id="outlined-adornment-weight"
+                    aria-describedby="outlined-weight-helper-text"
+                    size="small"
+                    inputProps={{
+                      'aria-label': 'Name',
+                      maxLength: 500,
+                    }}
+                  />
+                </FormControl>
+              </div>
+
+              <div>
+                <FormControl sx={{ m: 1, width: '50ch' }} variant="outlined">
+                  <FormHelperText id="outlined-weight-helper-text">{`UserName`}</FormHelperText>
+                  <OutlinedInput
+                    id="outlined-adornment-weight"
+                    aria-describedby="outlined-weight-helper-text"
+                    size="small"
+                    inputProps={{
+                      'aria-label': 'UserName',
+                      maxLength: 500,
+                    }}
+                  />
+                </FormControl>
+              </div>
+
+              <div>
+                <FormControl sx={{ m: 1, width: '50ch' }} variant="outlined">
+                  <FormHelperText id="outlined-weight-helper-text">{`Email`}</FormHelperText>
+                  <OutlinedInput
+                    id="outlined-adornment-weight"
+                    aria-describedby="outlined-weight-helper-text"
+                    size="small"
+                    inputProps={{
+                      'aria-label': 'Email',
+                      maxLength: 500,
+                    }}
+                  />
+                </FormControl>
+              </div>
+
+              <div>
+                <FormControl sx={{ m: 1, width: '50ch' }} variant="outlined">
+                  <FormHelperText id="outlined-weight-helper-text">{`Role`}</FormHelperText>
+                  <OutlinedInput
+                    id="outlined-adornment-weight"
+                    aria-describedby="outlined-weight-helper-text"
+                    size="small"
+                    inputProps={{
+                      'aria-label': 'Role',
+                      maxLength: 500,
+                    }}
+                  />
+                </FormControl>
+              </div>
+
+              <FormControl sx={{ m: 1 }} variant="standard">
+                <FormLabel component="legend" style={{ fontSize: 12, color: '#646464' }}>Password </FormLabel>
+                <FormGroup>
+                  <FormControlLabel
+                    control={
+                      <Checkbox checked={gilad} onChange={handleChange} 
+                      name="gilad" 
+                      sx={{
+                        color: deepPurple['A400'],
+                        '&.Mui-checked': {
+                          color: deepPurple['A400'],
+                        },
+                      }} />
+                    }
+                    label="Check to auto genarate password"
+                  />
+                </FormGroup>
+              </FormControl>
+
+              <div>
+                <FormControl sx={{ m: 1, width: '50ch' }} variant="outlined">
+                  <FormHelperText id="outlined-weight-helper-text">{`Password`}</FormHelperText>
+                  <OutlinedInput
+                    id="outlined-adornment-weight"
+                    aria-describedby="outlined-weight-helper-text"
+                    size="small"
+                    inputProps={{
+                      'aria-label': 'Password',
+                      maxLength: 500,
+                    }}
+                  />
+                </FormControl>
+              </div>
+
+              <div>
+                <FormControl sx={{ m: 1, width: '50ch' }} variant="outlined">
+                  <FormHelperText id="outlined-weight-helper-text">{`Password Confirmation`}</FormHelperText>
+                  <OutlinedInput
+                    id="outlined-adornment-weight"
+                    aria-describedby="outlined-weight-helper-text"
+                    size="small"
+                    inputProps={{
+                      'aria-label': 'PasswordConfirmation *',
+                      maxLength: 500,
+                    }}
+                  />
+                </FormControl>
+              </div>
+
+            </Box>
+          </DialogContent>
+
+          <DialogActions>
+            <Box sx={{ display: "flex", justifyContent: 'center', alignItems: "center", width: "100%", marginBottom: 2 }}>
+              <Button style={{ backgroundColor: '#5D40D2', color: '#FFFFFF', marginRight: 10 }} onClick={handleClose}>{`Create`}</Button>
+              <Button variant="outlined" style={{ backgroundColor: '#FAFBFE', color: '#646464', marginRight: 10 }} onClick={handleClose}>{`Back`}</Button>
+            </Box>
+          </DialogActions>
+        </Dialog>
+      </div>
+
     </>
   )
 }

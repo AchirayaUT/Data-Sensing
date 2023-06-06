@@ -1,12 +1,9 @@
 import { useState, useRef, useEffect } from "react";
-import { Typography, DialogActions, DialogContent, DialogContentText, DialogTitle, useMediaQuery, Button, Dialog } from '@mui/material'
+import { DialogActions, DialogContent, DialogContentText, DialogTitle, useMediaQuery, Button, Dialog } from '@mui/material'
 import { useRouter } from "next/router";
 import { useTheme } from '@mui/material/styles';
 import { deepPurple } from "@mui/material/colors";
 import DeleteIcon from '@mui/icons-material/Delete';
-
-import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
-import {  DialogCreate } from '@/src/components/Components'
 
 
 const DialogAction = () => {
@@ -27,14 +24,9 @@ const DialogAction = () => {
   return (
     <>
       <div>
-        <Button style={{ backgroundColor: '#5D40D2', color: '#FFFFFF', marginRight: 10 }} startIcon={<AddCircleOutlineIcon />}>
-          {`New Create`}
-        </Button>
         <Button variant="outlined" sx={{ color: deepPurple['A400'] }} onClick={handleClickOpen} startIcon={<DeleteIcon />}>
           {`Deactivate / Activate`}
         </Button>
-
-
 
         <Dialog
           fullScreen={fullScreen}
